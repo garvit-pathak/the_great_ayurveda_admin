@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row divOne">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Name</label>
+                <input [(ngModel)]="name" type="text" name="" id="" class="form-control">
+            </div>
+            <div class="form-group pb-2">
+                <label for="">Causes</label>
+                <input [(ngModel)]="causes" type="text" name="" id="" class="form-control">
+            </div>
+            <div class="form-group pb-2">
+                <label for="">Home Remedies</label>
+                <input [(ngModel)]="homeRemedies" type="text" name="" id="" class="form-control">
+            </div>
+            <div class="form-group pb-2">
+                <label for="">Yoga Link</label>
+                <input [(ngModel)]="yogaLink" type="text" name="" id="" class="form-control">
+            </div>
+            <div class="form-group pb-2">
+                <label for="">Precaution</label>
+                <input [(ngModel)]="precaution" type="text" name="" id="" class="form-control">
+            </div>
+            <div class="form-group pb-2">
+                <label for="">Image</label>
+                <input (change)="saveImage($event)" type="file" name="" id="" class="form-control">
+            </div>
+            <div class="form-group pb-2">
+                <label for="">KeyWord</label>
+                <input [(ngModel)]="keyword" type="text" name="" id="" class="form-control">
+            </div>
+            <div class="form-group pb-2">
+                <label for="">Medicine Id</label>
+                <input type="text" name="" id="" class="form-control">
+            </div>
+            <div class="form-group pb-2">
+                <label for="">Category</label>
+                <select (change)="getId($event)" class="form-control" id="exampleFormControlSelect1">
+                    <option value="">Select Category-</option>
+                    <option *ngFor="let c of storedCat" value="{{c._id}}">{{c.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button (click)="updateDiseaseForm()" class="btn btn-success">Update Disease Changes</button>
+            </div>
+        </div>
+    </div>
+</div>

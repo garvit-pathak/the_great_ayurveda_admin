@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Name</th>
+                    <th>Causes</th>
+                    <th>HomeRemedies</th>
+                    <th>YogaLink</th>
+                    <th>Precaution</th>
+                    <th>Image</th>
+                    <th>KeyWord</th>
+                    <th>Category</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let diseaseData of storedDisease index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{diseaseData.name}}</td>
+                    <td>{{diseaseData.causes}}</td>
+                    <td>{{diseaseData.homeRemedies}}</td>
+                    <td>{{diseaseData.yogaLink}}</td>
+                    <td>{{diseaseData.precaution}}</td>
+                    <td><img src="{{diseaseData.image}}" width="200px" height="200px" alt=""></td>
+                    <td>{{diseaseData.keyword}}</td>
+                    <td>{{diseaseData.category}}</td>
+                    <td><button routerLink="editdis/{{diseaseData._id}}" class="btn btn-dark">Edit</button></td>
+                    <td><button (click)="getId($event)" value="{{diseaseData._id}}" class="btn btn-danger">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<router-outlet></router-outlet>

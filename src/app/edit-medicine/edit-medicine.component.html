@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row divOne">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input [(ngModel)]="name"  type="text" name="" id="" class="form-control">
+        </div>
+        <div class="form-group pb-2">
+          <label for="">Price</label>
+          <input [(ngModel)]="price" type="text" name="" id="" class="form-control">
+        </div>
+        <div class="form-group pb-2">
+            <label for="">Description</label>
+            <input [(ngModel)]="description" type="text" name="" id="" class="form-control">
+          </div>
+          <div class="form-group pb-2">
+            <label for="">Stock</label>
+            <input [(ngModel)]="stock" type="text" name="" id="" class="form-control">
+          </div>
+          <div class="form-group pb-2">
+            <label for="">Image</label>
+            <input (change)="saveImage($event)" type="file" name="" id="" class="form-control">
+          </div>
+          <div class="form-group pb-2">
+            <label for="">Keyword</label>
+            <input [(ngModel)]="keyword" type="text" name="" id="" class="form-control">
+          </div>
+          <div class="form-group pb-2">
+            <label for="">Category</label>
+            <select (change)="getId($event)" class="form-control" id="exampleFormControlSelect1">
+                <option value="">Select Category-</option>
+                <option  *ngFor="let c of storedCat" value="{{c._id}}">{{c.name}}</option>
+            </select>
+          </div>
+          <div class="form-group pb-2">
+            <label for="">Precautions</label>
+            <input [(ngModel)]="precaution" type="text" name="" id="" class="form-control">
+          </div>
+          <div class="form-group pb-2">
+            <label for="">Ingredients</label>
+            <input [(ngModel)]="ingredients" type="text" name="" id="" class="form-control">
+          </div>
+          <div class="form-group pb-2">
+            <label for="">Uses</label>
+            <input [(ngModel)]="uses" type="text" name="" id="" class="form-control">
+          </div>
+          <div class="form-group pb-2">
+            <label for="">Side Effects</label>
+            <input [(ngModel)]="sideEffect" type="text" name="" id="" class="form-control">
+          </div>
+        <div class="form-group">
+          <button (click)="updateMedicineForm()" class="btn btn-success">Update Medicine Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
