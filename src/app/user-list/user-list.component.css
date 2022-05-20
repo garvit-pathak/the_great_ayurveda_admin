@@ -1,0 +1,35 @@
+.card{
+    float: left;
+}
+
+.photo{
+    border-radius: 25px;
+}
+
+.photo:hover{
+    width: 300px;
+    height: 250px;
+}
+.btn:hover{
+    background-color: transparent;
+    color: black;
+    border: 2px solid  #2b734b;
+}
+
+.buttonDelete{
+    margin-top: 25px;
+    border-radius: 25px;
+
+
+}
+
+.divOne{
+    border-color:2px;
+    border: 2px solid  #2b734b;
+    border-radius: 25px;
+}
+.buttonView{
+    margin-top: 25px;
+    margin-right: 50px;
+    border-radius: 25px;
+}

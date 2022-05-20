@@ -29,6 +29,15 @@
                     <a class="nav-link active" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewdis">View Disease</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link active" *ngIf="isLoggedIn()" aria-current="page" routerLink="userlist">Manage user</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" *ngIf="isLoggedIn()" aria-current="page" routerLink="doctorlist">Manage Doctor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" *ngIf="isLoggedIn()" aria-current="page" routerLink="orderlist">Manage Order</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" *ngIf="!isLoggedIn()" aria-current="page" routerLink="signin">Sign In</a>
                 </li>
                 <li class="nav-item">
