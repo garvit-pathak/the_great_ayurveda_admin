@@ -14,7 +14,7 @@
                     <th>Precaution</th>
                     <th>Ingredients</th>
                     <th>Uses</th>
-                    <th>SideEffects</th>
+                    <th>Category</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -32,7 +32,7 @@
                     <td>{{medicineData.precaution}}</td>
                     <td>{{medicineData.ingredients}}</td>
                     <td>{{medicineData.uses}}</td>
-                    <td>{{medicineData.sideEffect}}</td>
+                    <td>{{medicineData.category.name}}</td>
                     <td><button routerLink="editmed/{{medicineData._id}}" class="btn btn-dark">Edit</button></td>
                     <td><button (click)="getId($event)" value="{{medicineData._id}}" class="btn btn-danger">Delete</button></td>
                 </tr>

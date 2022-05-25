@@ -1,16 +1,15 @@
-<div class="container">
-  <div class="row divOne">
-    <div class="col-md-6">
+<div class="container body">
+  <div class="row main">
+    <div class="divOne col-md-3">
+      <h4 style="text-align: center; color:gray;" class="mb-5">Admin Sign In</h4>
       <div class="form-group">
-        <label for="">Email</label>
-        <input [(ngModel)]="admin.email" type="email" name="" id="" class="form-control">
+        <input [(ngModel)]="admin.email" type="email" name="" id="" placeholder="Enter Your Email Address" class="form-control mt-4">
       </div>
-      <div class="form-group pb-2">
-        <label for="">Password</label>
-        <input [(ngModel)]="admin.password" type="password" name="" id="" class="form-control">
+      <div class="form-group pb-2 mt-3">
+        <input [(ngModel)]="admin.password" type="password" name="" id="" placeholder="Enter Your Password" class="form-control mt-4">
       </div>
-      <div class="form-group">
-        <button (click)="SignInForm()" class="btn btn-success">Sign In</button>
+      <div class="form-group mt-4">
+        <button (click)="SignInForm()" class="btn-hover color-1 form-control">Sign In</button>
       </div>
     </div>
   </div>

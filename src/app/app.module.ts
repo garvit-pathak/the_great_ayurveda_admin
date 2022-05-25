@@ -19,6 +19,7 @@ import { EditDiseaseComponent } from './edit-disease/edit-disease.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { OrderViewComponent } from './order-view/order-view.component';
+import { UserQueryComponent } from './user-query/user-query.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { OrderViewComponent } from './order-view/order-view.component';
     EditDiseaseComponent,
     DoctorListComponent,
     UserListComponent,
-    OrderViewComponent
+    OrderViewComponent,
+    UserQueryComponent,
   ],
   imports: [
     BrowserModule,

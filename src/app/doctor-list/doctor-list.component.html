@@ -20,7 +20,7 @@
                         <td>{{doctor.name}}</td>
                         <td><img src="{{doctor.image}}" alt="" width="200px" height="200px"></td>
                         <td>
-                            <button *ngIf="doctor.isApproved"  class="btn btn-light" value="{{doctor._id}}">Approved</button>
+                            <button *ngIf="doctor.isApproved"  class="btn btn-light disabled" value="{{doctor._id}}">Approved</button>
                             <button *ngIf="!doctor.isApproved" (click)="getIdApprove($event)" class="btn btn-success" value="{{doctor._id}}">Approve</button>
                         </td>
                     

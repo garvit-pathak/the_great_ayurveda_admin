@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { OrderViewComponent } from './order-view/order-view.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserQueryComponent } from './user-query/user-query.component';
 import { ViewCategoryComponent } from './view-category/view-category.component';
 import { ViewDiseaseComponent } from './view-disease/view-disease.component';
 import { ViewMedicineComponent } from './view-medicine/view-medicine.component';
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path:'viewdis',component:ViewDiseaseComponent,canActivate:[AuthGuard]},
   {path:'viewdis/editdis/:id',component:EditDiseaseComponent,canActivate:[AuthGuard]},
   {path:'orderlist',component:OrderViewComponent,canActivate:[AuthGuard]},
-  {path:'signin',component:SignInComponent}
+  {path:'querylist',component:UserQueryComponent,canActivate:[AuthGuard]},
+  {path:'signin',component:SignInComponent},
 ];
 
 @NgModule({

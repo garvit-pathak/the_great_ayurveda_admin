@@ -8,14 +8,38 @@
                         <th>S.No</th>
                         <th>Name</th>
                         <th>Order Amount</th>
+                        <th>Medicine List</th>
                         <th>Address</th>
                         <th>Mobile</th>
-                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Delivery Status</th>
                     </tr>
 
                 </thead>
                 <tbody>
                     <tr *ngFor="let order of orderData index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{order.userId.name}}</td>
+                        <td>{{order.amount}}</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Medicine List
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" *ngFor="let o of order.medicineList">{{"MEDICINE NAME: "
+                                    +o.product.name+", MEDICINE QUANTITY: "+o.qty}}</a></li>
+                                  
+                                </ul>
+                              </div>
+                        </td>
+                        <td>{{order.address}}</td>
+                        <td>{{order.mobile}}</td>
+                        <td>{{order.date}}</td>
+                        <td><button *ngIf="order.delivery=='pending'" (click)="getId($event)" value="{{order._id}}"
+                                class="btn btn-dark">Pending</button>
+                            <button *ngIf="order.delivery=='delivered'" class="btn btn-success">Delivered</button>
+                        </td>
                     </tr>
                 </tbody>
 

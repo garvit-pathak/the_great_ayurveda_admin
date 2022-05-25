@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../service/category.service';
 import { MedicineService } from '../service/medicine.service';
 
 @Component({
@@ -7,20 +8,26 @@ import { MedicineService } from '../service/medicine.service';
   styleUrls: ['./view-medicine.component.css']
 })
 export class ViewMedicineComponent implements OnInit {
-  storedMedicine:any;
-  productId:any;
-  constructor(private medicineService:MedicineService) { 
-    medicineService.viewProduct().subscribe(data=>{
-      console.log(data);
-      this.storedMedicine=data;
+  storedMedicine: any;
+  productId: any;
+  currentCatId: any;
+  currentCatName: any = [];
+  categoryIdArr: any = [];
+
+  constructor(private medicineService: MedicineService, categoryService: CategoryService) {
+    medicineService.viewProduct().subscribe(data => {
+      this.storedMedicine = data;
+
     });
+
+
   }
 
   ngOnInit(): void {
   }
-  getId(event:any){
-    this.productId=event.target.value;
-    this.medicineService.deleteProduct(this.productId).subscribe(data=>{
+  getId(event: any) {
+    this.productId = event.target.value;
+    this.medicineService.deleteProduct(this.productId).subscribe(data => {
       location.reload();
     });
   }
