@@ -1,1 +1,13 @@
-<p>user-list works!</p>
+<div class="container m-auto">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto mb-5 divOne"  *ngFor="let user of userStored">
+            <img src="{{user.image}}" class="card-img-top photo" height="200px" width="200px"  alt="">
+            <div class="card-body">
+                <h6 class="card-title">Name: {{user.name}}</h6>
+                <h6 class="card-title">Email: {{user.email}}</h6>
+                <h6 class="card-title">Mobile: {{user.mobile}}</h6>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,38 @@
-<p>doctor-list works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Doctor Name</th>
+                        <th>Doctor Image</th>
+                        <th>Approve</th>
+                        <th>Reject</th>
+                        <th>Permanently Delete</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let doctor of doctorStored index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{doctor.name}}</td>
+                        <td><img src="{{doctor.image}}" alt="" width="200px" height="200px"></td>
+                        <td>
+                            <button *ngIf="doctor.isApproved"  class="btn btn-light disabled" value="{{doctor._id}}">Approved</button>
+                            <button *ngIf="!doctor.isApproved" (click)="getIdApprove($event)" class="btn btn-success" value="{{doctor._id}}">Approve</button>
+                        </td>
+                    
+                        <td *ngIf="doctor.isApproved"><button  class="btn btn-dark disabled" value="{{doctor._id}}">Reject</button></td>
+                        <td *ngIf="!doctor.isApproved"><button  (click)="getIdReject($event)"  class="btn btn-dark" value="{{doctor._id}}">Reject</button></td>
+                        
+                        
+                        <td><button (click)="deleteById($event)" value="{{doctor._id}}" class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="table">
+                <thead>
+                    <tr>
+                        <th>S.no</th>
+                        <th>Visitor Email</th>
+                        <th>Query</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let query of queryData index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{query.email}}</td>
+                        <td>{{query.query}}</td>
+                        <td><button class="btn btn-dark">Pending</button></td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+    </div>
+</div>

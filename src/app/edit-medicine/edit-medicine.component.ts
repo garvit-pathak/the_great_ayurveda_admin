@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CategoryService } from '../service/category.service';
 import { MedicineService } from '../service/medicine.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { MedicineService } from '../service/medicine.service';
 export class EditMedicineComponent implements OnInit {
   medicineStored: any;
   storedCat: any;
-  
+
   id: any;
   catId: any;
   name: any;
@@ -23,24 +24,33 @@ export class EditMedicineComponent implements OnInit {
   ingredients: any;
   uses: any;
   sideEffect: any;
+  currentCategoryId: any;
+  currentCategoryName: any;
 
-  constructor(private medicineService: MedicineService, private activatedRoute: ActivatedRoute,private router:Router) {
+  constructor(private medicineService: MedicineService, private activatedRoute: ActivatedRoute, private router: Router, private categoryService: CategoryService) {
+
     this.id = activatedRoute.snapshot.paramMap.get('id');
     medicineService.viewMedProductById(this.id).subscribe(dataPro => {
       this.medicineStored = dataPro;
       this.name = dataPro.name;
-      this.price=dataPro.price;
-      this.description=dataPro.description;
-      this.stock=dataPro.stock;
-      this.keyword=dataPro.keyword;
-      this.precaution=dataPro.precaution;
-      this.ingredients=dataPro.ingredients;
-      this.uses=dataPro.uses;
-      this.sideEffect=dataPro.sideEffect;
+      this.price = dataPro.price;
+      this.description = dataPro.description;
+      this.stock = dataPro.stock;
+      this.keyword = dataPro.keyword;
+      this.precaution = dataPro.precaution;
+      this.ingredients = dataPro.ingredients;
+      this.uses = dataPro.uses;
+      this.sideEffect = dataPro.sideEffect;
+      this.currentCategoryId = dataPro.category;
+      categoryService.viewCategoryById(this.currentCategoryId).subscribe(dataCat => {
+        this.currentCategoryName = dataCat.name;
+      });
     });
     medicineService.viewCategory().subscribe(data => {
       this.storedCat = data;
     });
+
+
   }
 
   ngOnInit(): void {
@@ -52,29 +62,59 @@ export class EditMedicineComponent implements OnInit {
     this.catId = event.target.value;
   }
   updateMedicineForm() {
-    let formData=new FormData();
-    formData.append('pId',this.id);
-    formData.append('name',this.name);
-    formData.append('price',this.price);
-    formData.append('description',this.description);
-    formData.append('stock',this.stock);
-    formData.append('image',this.image);
-    formData.append('keyword',this.keyword);
-    formData.append('category',this.catId);
-    formData.append('precaution',this.precaution);
-    formData.append('ingredients',this.ingredients);
-    formData.append('uses',this.uses);
-    formData.append('sideEffect',this.sideEffect);
+    if (this.catId) {
+      let formData = new FormData();
+      formData.append('pId', this.id);
+      formData.append('name', this.name);
+      formData.append('price', this.price);
+      formData.append('description', this.description);
+      formData.append('stock', this.stock);
+      formData.append('image', this.image);
+      formData.append('keyword', this.keyword);
+      formData.append('category', this.catId);
+      formData.append('precaution', this.precaution);
+      formData.append('ingredients', this.ingredients);
+      formData.append('uses', this.uses);
+      formData.append('sideEffect', this.sideEffect);
 
-    this.medicineService.updateMedicine(formData).subscribe(data=>{
-      console.log(data);
-      if(data.matchedCount && data.modifiedCount){
-        alert('Updated');
-        this.router.navigate(['viewmed']);
-      }
-      else{
-        alert('Cannot Updated');
-      }
-    })
+      this.medicineService.updateMedicine(formData).subscribe(data => {
+        console.log(data);
+        if (data.matchedCount && data.modifiedCount) {
+          alert('Updated');
+          this.router.navigate(['viewmed']);
+        }
+        else {
+          alert('Already Updated');
+        }
+      });
+    }
+    else {
+      let formData = new FormData();
+      formData.append('pId', this.id);
+      formData.append('name', this.name);
+      formData.append('price', this.price);
+      formData.append('description', this.description);
+      formData.append('stock', this.stock);
+      formData.append('image', this.image);
+      formData.append('keyword', this.keyword);
+      formData.append('category', this.currentCategoryId);
+      formData.append('precaution', this.precaution);
+      formData.append('ingredients', this.ingredients);
+      formData.append('uses', this.uses);
+      formData.append('sideEffect', this.sideEffect);
+
+      this.medicineService.updateMedicine(formData).subscribe(data => {
+        console.log(data);
+        if (data.matchedCount && data.modifiedCount) {
+          alert('Updated');
+          this.router.navigate(['viewmed']);
+        }
+        else {
+          alert('Already Updated');
+        }
+      });
+    }
+
   }
+
 }

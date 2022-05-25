@@ -23,7 +23,7 @@
             </div>
             <div class="form-group pb-2">
                 <label for="">Image</label>
-                <input (change)="saveImage($event)" type="file" name="" id="" class="form-control">
+                <input (change)="saveImage($event)" type="file" name="" id="" value="{{imageOld}}" class="form-control">
             </div>
             <div class="form-group pb-2">
                 <label for="">KeyWord</label>
@@ -36,7 +36,7 @@
             <div class="form-group pb-2">
                 <label for="">Category</label>
                 <select (change)="getId($event)" class="form-control" id="exampleFormControlSelect1">
-                    <option value="">Select Category-</option>
+                    <option [(ngModel)]="currentCategoryName" value="">{{currentCategoryName}}</option>
                     <option *ngFor="let c of storedCat" value="{{c._id}}">{{c.name}}</option>
                 </select>
             </div>
