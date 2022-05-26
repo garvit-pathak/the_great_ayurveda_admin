@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from './service/admin.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,8 @@ import { AdminService } from './service/admin.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'canbeDelete';
-  constructor(private adminService:AdminService,private router:Router){
-
+  title = 'Admin The Great Ayurveda';
+  constructor(private adminService:AdminService,private router:Router,private toastr:ToastrService){
   }
   isLoggedIn():boolean{
     if(this.adminService.checkToken()){
@@ -20,6 +20,7 @@ export class AppComponent {
     return false;
   }
   signOut(){
+    this.toastr.success('SignOut Successfully','Successfull');
     localStorage.removeItem('jwt-token');
     this.router.navigate(['signin']);
   }

@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../service/category.service';
 import { DiseaseService } from '../service/disease.service';
 
@@ -18,7 +20,7 @@ export class AddDiseaseComponent implements OnInit {
   storedCat:any;
   catId:any;
 
-  constructor(private diseaseService:DiseaseService,private categoryService:CategoryService) {
+  constructor(private diseaseService:DiseaseService,private categoryService:CategoryService,private taostr:ToastrService) {
     categoryService.viewCategory().subscribe(data=>{
       this.storedCat=data;
     });
@@ -45,8 +47,14 @@ export class AddDiseaseComponent implements OnInit {
     formData.append('category',this.catId);
 
     this.diseaseService.addDisease(formData).subscribe(data=>{
-      console.log(data);
-      alert('Disease Added');
+      this.taostr.success('Disease Added Successfully','Successfull');
+      
+    },err=>{
+      if(err instanceof HttpErrorResponse){
+        if(err.status>=400){
+          this.taostr.error('Cannot add new disease','Error');
+        }
+      }
     });
   }
 }

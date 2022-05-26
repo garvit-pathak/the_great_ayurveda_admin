@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <div class="form-group">
+                <label for="">Enter Query response text</label>
+                <textarea [(ngModel)]="text" name="" id="" cols="30" rows="10" placeholder="Write your text here" class="form-control"></textarea>
+            </div>
+            <div class="form-group mt-3">
+                <button (click)="sendData()" class="btn btn-success">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

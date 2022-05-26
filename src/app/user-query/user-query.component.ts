@@ -8,12 +8,14 @@ import { QueryService } from '../service/query.service';
 })
 export class UserQueryComponent implements OnInit {
   queryData:any;
+  queryId:any;
+
   constructor(private queryService:QueryService) {
     queryService.viewQuery().subscribe(data=>{
       this.queryData=data;
     });
    }
-
+   
   ngOnInit(): void {
   }
 

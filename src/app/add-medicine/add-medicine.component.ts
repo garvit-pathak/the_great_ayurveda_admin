@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { MedicineService } from '../service/medicine.service';
 
 @Component({
@@ -19,7 +21,7 @@ export class AddMedicineComponent implements OnInit {
   uses:any;
   sideEffect:any;
   storedCat:any;
-  constructor(private medicineService:MedicineService) {
+  constructor(private medicineService:MedicineService,private toastr:ToastrService) {
     medicineService.viewCategory().subscribe(data=>{
       this.storedCat=data;
     });
@@ -33,7 +35,7 @@ export class AddMedicineComponent implements OnInit {
   saveImage(event: any) {
     if(event.target.files.length>0){
       this.image=event.target.files[0];
-      console.log(this.image);
+      
     }
   }
   addMedicineForm() { 
@@ -51,7 +53,14 @@ export class AddMedicineComponent implements OnInit {
     formData.append('sideEffect',this.sideEffect);
 
     this.medicineService.addMedicine(formData).subscribe(data=>{
-        alert('added');
+      this.toastr.success('Medicine Added Successfully','Successfull');
+
+    },err=>{
+      if(err instanceof HttpErrorResponse){
+        if(err.status>=400){
+          this.toastr.error('Cannot add new medicine','Error');
+        }
+      }
     })
   }
 

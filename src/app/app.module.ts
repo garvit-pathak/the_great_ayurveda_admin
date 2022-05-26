@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,6 +23,7 @@ import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { OrderViewComponent } from './order-view/order-view.component';
 import { UserQueryComponent } from './user-query/user-query.component';
+import { QueryResponseComponent } from './query-response/query-response.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +43,16 @@ import { UserQueryComponent } from './user-query/user-query.component';
     UserListComponent,
     OrderViewComponent,
     UserQueryComponent,
+    QueryResponseComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

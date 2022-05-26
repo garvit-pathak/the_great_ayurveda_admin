@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../service/category.service';
 
 @Component({
@@ -7,16 +9,21 @@ import { CategoryService } from '../service/category.service';
   styleUrls: ['./add-category.component.css']
 })
 export class AddCategoryComponent implements OnInit {
-  name:any;
-  
-  constructor(private categoryService:CategoryService) { }
+  name: any;
+
+  constructor(private categoryService: CategoryService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
-  addCategoryForm(){
-    this.categoryService.addCategory(this.name).subscribe(data=>{
-      if(data){
-        alert('Category Added');
+  addCategoryForm() {
+    this.categoryService.addCategory(this.name).subscribe(data => {
+
+      this.toastr.success('Category Added Successfully','Successfull');
+    },err=>{
+      if(err instanceof HttpErrorResponse){
+        if(err.status==500){
+          this.toastr.error('Invalid Username and password','Error');
+        }
       }
     });
   }

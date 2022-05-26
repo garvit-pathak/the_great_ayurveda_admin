@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../service/category.service';
 import { DiseaseService } from '../service/disease.service';
 
@@ -22,7 +24,7 @@ export class EditDiseaseComponent implements OnInit {
   imageOld: any;
   category: any;
   currentCategoryName:any;
-  constructor(private diseaseService: DiseaseService, private activatedRoute: ActivatedRoute, private categoryService: CategoryService, private router: Router) {
+  constructor(private diseaseService: DiseaseService, private activatedRoute: ActivatedRoute, private categoryService: CategoryService, private router: Router,private taostr:ToastrService) {
     this.dId = activatedRoute.snapshot.paramMap.get('id');
     diseaseService.viewParticularDisease(this.dId).subscribe(data => {
       this.name = data.name;
@@ -68,10 +70,17 @@ export class EditDiseaseComponent implements OnInit {
       formData.append('image', this.image);
       formData.append('keyword', this.keyword);
       this.diseaseService.updateDisease(formData).subscribe(data => {
-        console.log(data);
-        alert('Updated');
+      
+      this.taostr.success('Updated Successfully','Successfull');
+        
         this.router.navigate(['viewdis']);
 
+      }, err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status >= 400) {
+            this.taostr.error('Cannot Update', 'Error');
+          }
+        }
       });
     }
     else {
@@ -88,10 +97,16 @@ export class EditDiseaseComponent implements OnInit {
       formData.append('image', this.image);
       formData.append('keyword', this.keyword);
       this.diseaseService.updateDisease(formData).subscribe(data => {
-        console.log(data);
-        alert('Updated');
+      this.taostr.success('Updated Successfully','Successfull');
+        
         this.router.navigate(['viewdis']);
 
+      }, err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status >= 400) {
+            this.taostr.error('Cannot Update', 'Error');
+          }
+        }
       });
 
     }

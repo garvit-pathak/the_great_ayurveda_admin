@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { DiseaseService } from '../service/disease.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { DiseaseService } from '../service/disease.service';
 export class ViewDiseaseComponent implements OnInit {
   storedDisease:any;
   dId:any;
-  constructor(private diseaseService:DiseaseService) {
+  constructor(private diseaseService:DiseaseService,private taostr:ToastrService) {
     diseaseService.viewAll().subscribe(data=>{
       this.storedDisease=data;
     });
@@ -18,11 +20,21 @@ export class ViewDiseaseComponent implements OnInit {
   ngOnInit(): void {
   }
   getId(event:any){
-    this.dId=event.target.value;
+    if(confirm('Are you sure?')){
+      this.dId=event.target.value;
     this.diseaseService.deleteDisease(this.dId).subscribe(data=>{
-      console.log(data);
-      alert('Deleted Successfull');
+      
+      this.taostr.success('Deleted Successfully');
+      
       location.reload();
+    }, err => {
+      if (err instanceof HttpErrorResponse) {
+        if (err.status >= 400) {
+          this.taostr.error('Cannot Delete', 'Error');
+        }
+      }
     });
+    }
+    
   }  
 }

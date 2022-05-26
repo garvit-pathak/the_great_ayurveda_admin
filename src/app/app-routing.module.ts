@@ -10,6 +10,7 @@ import { EditMedicineComponent } from './edit-medicine/edit-medicine.component';
 import { AuthGuard } from './guard/auth.guard';
 import { HeaderComponent } from './header/header.component';
 import { OrderViewComponent } from './order-view/order-view.component';
+import { QueryResponseComponent } from './query-response/query-response.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserQueryComponent } from './user-query/user-query.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path:'viewdis/editdis/:id',component:EditDiseaseComponent,canActivate:[AuthGuard]},
   {path:'orderlist',component:OrderViewComponent,canActivate:[AuthGuard]},
   {path:'querylist',component:UserQueryComponent,canActivate:[AuthGuard]},
+  {path:'querylist/querySendPage/:id',component:QueryResponseComponent,canActivate:[AuthGuard]},
   {path:'signin',component:SignInComponent},
 ];
 
