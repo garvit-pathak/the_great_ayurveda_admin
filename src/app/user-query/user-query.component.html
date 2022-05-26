@@ -8,6 +8,7 @@
                         <th>Visitor Email</th>
                         <th>Query</th>
                         <th>Status</th>
+                        <th>Update</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -15,9 +16,35 @@
                         <td>{{i+1}}</td>
                         <td>{{query.email}}</td>
                         <td>{{query.query}}</td>
-                        <td><button class="btn btn-dark">Pending</button></td>
+                        <td>
+                            <p *ngIf="query.status=='pending'">Pending</p>
+                            <p *ngIf="query.status=='Resolved'">Resolved</p>
+                        </td>
+                        <td>
+                            <button *ngIf="query.status=='pending'" value="{{query._id}}"
+                                routerLink="querySendPage/{{query._id}}" class="btn btn-dark">Response</button>
+                            <button *ngIf="query.status=='Resolved'" value="{{query._id}}"
+                                routerLink="querySendPage/{{query._id}}" class="btn btn-light disabled">Closed</button>
+                        </td>
                     </tr>
                 </tbody>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

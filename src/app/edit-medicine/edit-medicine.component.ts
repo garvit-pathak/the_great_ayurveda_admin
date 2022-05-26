@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../service/category.service';
 import { MedicineService } from '../service/medicine.service';
 
@@ -27,7 +29,7 @@ export class EditMedicineComponent implements OnInit {
   currentCategoryId: any;
   currentCategoryName: any;
 
-  constructor(private medicineService: MedicineService, private activatedRoute: ActivatedRoute, private router: Router, private categoryService: CategoryService) {
+  constructor(private medicineService: MedicineService, private activatedRoute: ActivatedRoute, private router: Router, private categoryService: CategoryService, private taostr: ToastrService) {
 
     this.id = activatedRoute.snapshot.paramMap.get('id');
     medicineService.viewMedProductById(this.id).subscribe(dataPro => {
@@ -80,11 +82,18 @@ export class EditMedicineComponent implements OnInit {
       this.medicineService.updateMedicine(formData).subscribe(data => {
         console.log(data);
         if (data.matchedCount && data.modifiedCount) {
-          alert('Updated');
+          this.taostr.success('Updated Successfully', 'Successfull');
+
           this.router.navigate(['viewmed']);
         }
         else {
           alert('Already Updated');
+        }
+      }, err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status >= 400) {
+            this.taostr.error('Cannot Update', 'Error');
+          }
         }
       });
     }
@@ -104,13 +113,21 @@ export class EditMedicineComponent implements OnInit {
       formData.append('sideEffect', this.sideEffect);
 
       this.medicineService.updateMedicine(formData).subscribe(data => {
-        console.log(data);
+
         if (data.matchedCount && data.modifiedCount) {
-          alert('Updated');
+
           this.router.navigate(['viewmed']);
+          this.taostr.success('Updated Successfully', 'Successfull');
+
         }
         else {
           alert('Already Updated');
+        }
+      }, err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status >= 400) {
+            this.taostr.error('Cannot Update', 'Error');
+          }
         }
       });
     }
