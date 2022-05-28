@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../service/category.service';
 
@@ -11,7 +12,7 @@ import { CategoryService } from '../service/category.service';
 export class AddCategoryComponent implements OnInit {
   name: any;
 
-  constructor(private categoryService: CategoryService, private toastr: ToastrService) { }
+  constructor(private categoryService: CategoryService, private toastr: ToastrService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +20,7 @@ export class AddCategoryComponent implements OnInit {
     this.categoryService.addCategory(this.name).subscribe(data => {
 
       this.toastr.success('Category Added Successfully','Successfull');
+      this.router.navigate(['viewcat']);
     },err=>{
       if(err instanceof HttpErrorResponse){
         if(err.status==500){

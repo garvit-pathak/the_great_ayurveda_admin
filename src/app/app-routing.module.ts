@@ -34,7 +34,7 @@ const routes: Routes = [
   {path:'viewdis/editdis/:id',component:EditDiseaseComponent,canActivate:[AuthGuard]},
   {path:'orderlist',component:OrderViewComponent,canActivate:[AuthGuard]},
   {path:'querylist',component:UserQueryComponent,canActivate:[AuthGuard]},
-  {path:'querylist/querySendPage/:id',component:QueryResponseComponent,canActivate:[AuthGuard]},
+  // {path:'querylist/querySendPage/:id',component:QueryResponseComponent,canActivate:[AuthGuard]},
   {path:'signin',component:SignInComponent},
 ];
 

@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MedicineService } from '../service/medicine.service';
 
@@ -21,7 +22,7 @@ export class AddMedicineComponent implements OnInit {
   uses:any;
   sideEffect:any;
   storedCat:any;
-  constructor(private medicineService:MedicineService,private toastr:ToastrService) {
+  constructor(private medicineService:MedicineService,private toastr:ToastrService,private router:Router) {
     medicineService.viewCategory().subscribe(data=>{
       this.storedCat=data;
     });
@@ -54,6 +55,7 @@ export class AddMedicineComponent implements OnInit {
 
     this.medicineService.addMedicine(formData).subscribe(data=>{
       this.toastr.success('Medicine Added Successfully','Successfull');
+      this.router.navigate(['viewmed']);
 
     },err=>{
       if(err instanceof HttpErrorResponse){
