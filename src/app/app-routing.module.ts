@@ -19,7 +19,7 @@ import { ViewDiseaseComponent } from './view-disease/view-disease.component';
 import { ViewMedicineComponent } from './view-medicine/view-medicine.component';
 
 const routes: Routes = [
-  {path:'',component:HeaderComponent},
+  {path:'',component:SignInComponent},
   
   {path:'addcat',component:AddCategoryComponent,canActivate:[AuthGuard]},
   {path:'viewcat',component:ViewCategoryComponent,canActivate:[AuthGuard]},

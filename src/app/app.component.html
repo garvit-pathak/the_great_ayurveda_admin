@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg">
     <div class="container-fluid">
         <img src="../assets/images/image-removebg-preview.png" height="80px" width="120px" alt="">
-        <a class="navbar-brand" style="font-size: 25px; font-weight: bold; color: gray;" *ngIf="!isLoggedIn()" href="#">The Great Ayurveda</a>
+        <a class="navbar-brand" style="font-size: 22px; font-weight: bold; color: black;" *ngIf="!isLoggedIn()" href="#">The Great Ayurveda</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,47 +9,126 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 80px;" >
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="addcat">Add Category</a>
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="addcat">Add Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewcat">View Category</a>
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewcat">View Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="addmed">Add Medicine</a>
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="addmed">Add Medicine</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewmed">View Medicine</a>
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewmed">View Medicine</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="adddis">Add Disease</a>
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="adddis">Add Disease</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewdis">View Disease</a>
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewdis">View Disease</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="doctorlist">Manage Doctor</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="userlist">Manage user</a>
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="orderlist">Manage Order</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="doctorlist">Manage Doctor</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="orderlist">Manage Order</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" routerLink="querylist">Manage Query</a>
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="querylist">Manage Query</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="isLoggedIn()" aria-current="page" (click)="signOut()" routerLink="">Sign Out</a>
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" (click)="signOut()" routerLink="">Sign Out</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray; margin-left: 230px;" *ngIf="!isLoggedIn()" aria-current="page" routerLink="">Home</a>
+                    <a class="nav-link active" style="color: black ; margin-left: 240px; font-weight: 600; font-size: 1.2rem;" *ngIf="!isLoggedIn()" aria-current="page" routerLink="">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" style="color: gray;" *ngIf="!isLoggedIn()" aria-current="page" routerLink="signin">Sign In</a>
+                    <a class="nav-link active" style="color: black ; font-weight: 600; font-size: 1.2rem" *ngIf="!isLoggedIn()" aria-current="page" routerLink="signin">Sign In</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <img src="../assets/images/image-removebg-preview.png" height="60px" width="100px" >
+      <a class="navbar-brand" style="font-size: 18px; font-weight: bold; color: green;"  href="#">The Great Ayurveda</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse headline" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+         
+          <li class="nav-item dropdown" >
+            <a class="nav-link dropdown-toggle"  *ngIf="isLoggedIn()"href="#" id="navbarDropdownMenuLink"  role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;  " >
+            Category
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: black;"*ngIf="isLoggedIn()"  aria-current="page" routerLink="addcat">Add Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewcat">View Category</a>
+                </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" *ngIf="isLoggedIn()" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+            Medicine
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="addmed">Add Medicine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewmed">View Medicine</a>
+                </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" *ngIf="isLoggedIn()" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+               Diseases
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="adddis">Add Disease</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="viewdis">View Disease</a>
+                </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="userlist">User</a>
+         </li>
+         <li>
+         <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="doctorlist">Manage Doctor</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="orderlist">Manage Order</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" routerLink="querylist">Manage Query</a>
+        </li>
+       
+
+        </ul>
+      </div>
+      <ul class="right">
+        <li class="nav-item">
+            <a class="nav-link active" style="color: black;" *ngIf="isLoggedIn()" aria-current="page" (click)="signOut()" routerLink="">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
