@@ -1,0 +1,20 @@
+.add{
+     background-color: rgb(223, 249, 201); 
+
+    /* padding-top: 50px; */
+    margin-top:100px ;
+    height: 300px;
+    width: 500px;
+    /* background-image: url(../../assets/images/herbs-and-spices1-4b5a2a1c1e.jpg) ; */
+    
+    
+}
+.img{
+    opacity: 0.5;
+}
+.form-inside{
+    padding-top: 80px;
+    padding-left: 80px;
+    /* height: ; */
+    width:400px;
+}

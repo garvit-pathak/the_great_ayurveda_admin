@@ -1,8 +1,7 @@
-<div class="container">
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
+
+        <table class="table table-bordered table-responsive" >
+            <thead class="head">
+                <tr class="headline" >
                     <th>S.no</th>
                     <th>_Id</th>
                     <th>Name</th>
@@ -19,7 +18,7 @@
                     <th>Delete</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="body">
                 <tr *ngFor="let medicineData of storedMedicine index as i">
                     <td>{{i+1}}</td>
                     <td>{{medicineData._id}}</td>
@@ -27,7 +26,7 @@
                     <td>{{medicineData.price}}</td>
                     <td>{{medicineData.description}}</td>
                     <td>{{medicineData.stock}}</td>
-                    <td><img src="{{medicineData.image}}" width="200px" height="200px" alt=""></td>
+                    <td><img src="{{medicineData.image}}" style="border-radius: 20px;" width="150px" height="150px"  alt=""></td>
                     <td>{{medicineData.keyword}}</td>
                     <td>{{medicineData.precaution}}</td>
                     <td>{{medicineData.ingredients}}</td>
@@ -38,6 +37,5 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-</div>
+    
 <router-outlet></router-outlet>

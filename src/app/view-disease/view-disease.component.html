@@ -1,9 +1,9 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table">
-                <thead>
-                    <tr>
+<!-- <div class="container"> -->
+    <!-- <div class="row"> -->
+        <!-- <div class="col-md-12"> -->
+            <table class="table table-bordered table-responsive">
+                <thead class="head">
+                    <tr class="Headline">
                         <th>S.no</th>
                         <th>Name</th>
                         <th>Causes</th>
@@ -17,7 +17,7 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="body">
                     <tr *ngFor="let diseaseData of storedDisease index as i">
                         <td>{{i+1}}</td>
                         <td>{{diseaseData.name}}</td>
@@ -33,8 +33,8 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        <!-- </div> -->
         
-    </div>
-</div>
+    <!-- </div> -->
+<!-- </div> -->
 <router-outlet></router-outlet>

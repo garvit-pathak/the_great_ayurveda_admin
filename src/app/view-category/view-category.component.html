@@ -1,24 +1,24 @@
-<div class="container">
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
+<!-- <div class="container">
+    <div class="row"> -->
+        <table class="table table-bordered table-responsive">
+            <thead class="head">
+                <tr class="Headline">
                     <th>S.no</th>
                     <th>Name</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="body">
                 <tr *ngFor="let category of categoryDataStored index as i">
                     <td>{{i+1}}</td>
                     <td>{{category.name}}</td>
-                    <td><button routerLink="editcat/{{category._id}}" class="btn btn-dark">Edit</button></td>
+                    <td><button routerLink="editcat/{{category._id}}" class="btn btn-success">Edit</button></td>
                     <td><button (click)="getId($event)" value="{{category._id}}" class="btn btn-danger">Delete</button></td>
                 </tr>
             </tbody>
         </table>
-    </div>
-</div>
+    <!-- </div>
+</div> -->
 
 <router-outlet></router-outlet>

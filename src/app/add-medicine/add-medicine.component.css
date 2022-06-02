@@ -1,3 +1,8 @@
 .divOne{
-    box-shadow:1px 1px ;
+    /* box-shadow:1px 1px ; */
+}
+.container{
+    background-color: rgb(223, 249, 201);
+    width: 600px;
+    padding-top: 20px;
 }

@@ -144,7 +144,7 @@
     pointer-events: auto;
   }
   .toast-success {
-    background-color: #72e672;
+    background-color: green;
   }
   .toast-error {
     background-color: #dd564f;
